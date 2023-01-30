@@ -7,7 +7,7 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <PackageId>ConstantStream</PackageId>
-    <Version>1.0.2</Version>
+    <Version>1.0.3</Version>
     <Authors>Stephen Krol</Authors>
     <Product>ConstantStream</Product>
     <PackageTags>Streams Constant Test;Streams;Constant;Test</PackageTags>
@@ -21,18 +21,16 @@
     <RepositoryUrl>https://github.com/stivio00/ConstantStream.git</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
 
- 
-      <PublishRepositoryUrl>true</PublishRepositoryUrl>
-      <EmbedUntrackedSources>true</EmbedUntrackedSources>
-      <IncludeSymbols>true</IncludeSymbols>
-      <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <EmbedUntrackedSources>true</EmbedUntrackedSources>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
 
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.1.1" PrivateAssets="All"/>
   </ItemGroup>
-  
 
   <ItemGroup>
     <None Include="../README.md" Pack="true" PackagePath="\" />
