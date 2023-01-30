@@ -1,0 +1,31 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <PackageId>ConstantStream</PackageId>
+    <Version>1.0.0</Version>
+    <Authors>Stephen Krol</Authors>
+    <Product>ConstantStream</Product>
+    <PackageTags>Streams Constant Test;Streams;Constant;Test</PackageTags>
+    <Description>
+      This library provide a basic type "ConstantStream" is a generator Stream that
+      returns the same byte.
+      Its usefull to create big testing streams with predictable Hash values.
+    </Description>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+  </PropertyGroup>
+
+
+  <PropertyGroup>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+  </PropertyGroup>
+
+<ItemGroup>
+    <None Include="..\README.md" Pack="true" PackagePath="\"/>
+</ItemGroup>
+
+</Project>
