@@ -32,25 +32,22 @@ public class ConstantStream : Stream
 
     public override int Read(byte[] buffer, int offset, int count)
     {
-        var remaining = _size - _position;
-
-        if (remaining == 0)
+        int remaining = _size - _position;
+        if (count == 0) 
             return -1;
-
-        if (remaining < count)
-        {
-            for (int i = 0; i < remaining; i += 1)
+        
+        if (count > remaining){
+            for(int i = 0; i <remaining; i++)
                 buffer[i] = _content;
 
             _position += remaining;
             return remaining;
         }
 
-        for (int i = 0; i < count; i += 1)
+        for (int i = 0; i <count; i++)
             buffer[i] = _content;
 
         _position += count;
-
         return count;
     }
 

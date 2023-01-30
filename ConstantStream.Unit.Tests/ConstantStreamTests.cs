@@ -13,7 +13,7 @@ public class ConstantStreamTests
 
         var result = reader.ReadToEnd();
 
-        "aaa".Should().Be(expected);
+        result.Should().Be(expected);
 
     }
 }
