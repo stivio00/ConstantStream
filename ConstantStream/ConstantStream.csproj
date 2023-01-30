@@ -7,7 +7,7 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <PackageId>ConstantStream</PackageId>
-    <Version>1.0.1</Version>
+    <Version>1.0.2</Version>
     <Authors>Stephen Krol</Authors>
     <Product>ConstantStream</Product>
     <PackageTags>Streams Constant Test;Streams;Constant;Test</PackageTags>
@@ -17,17 +17,17 @@
       Its usefull to create big testing streams with predictable Hash values.
     </Description>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <RepositoryUrl>https://github.com/stivio00/ConstantStream.git</RepositoryUrl> 
-    <RepositoryType>git</RepositoryType> 
+    <PackageProjectUrl>https://github.com/stivio00/ConstantStream</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/stivio00/ConstantStream.git</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Include="../README.md" Pack="true" PackagePath="\" />
+  </ItemGroup>
 
   <PropertyGroup>
-    <PackageReadmeFile>./../README.md</PackageReadmeFile>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
-
-<ItemGroup>
-    <None Include="./../README.md" Pack="true" PackagePath="\"/>
-</ItemGroup>
 
 </Project>
