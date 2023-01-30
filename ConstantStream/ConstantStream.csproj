@@ -7,25 +7,27 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <PackageId>ConstantStream</PackageId>
-    <Version>1.0.0</Version>
+    <Version>1.0.1</Version>
     <Authors>Stephen Krol</Authors>
     <Product>ConstantStream</Product>
     <PackageTags>Streams Constant Test;Streams;Constant;Test</PackageTags>
     <Description>
-      This library provide a basic type "ConstantStream" is a generator Stream that
-      returns the same byte.
+      This library provide a basic type "ConstantStream". This type is a generator Stream that
+      returns the same byte until the end of the stream.
       Its usefull to create big testing streams with predictable Hash values.
     </Description>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <RepositoryUrl>https://github.com/stivio00/ConstantStream.git</RepositoryUrl> 
+    <RepositoryType>git</RepositoryType> 
   </PropertyGroup>
 
 
   <PropertyGroup>
-    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageReadmeFile>./../README.md</PackageReadmeFile>
   </PropertyGroup>
 
 <ItemGroup>
-    <None Include="..\README.md" Pack="true" PackagePath="\"/>
+    <None Include="./../README.md" Pack="true" PackagePath="\"/>
 </ItemGroup>
 
 </Project>

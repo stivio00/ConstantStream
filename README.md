@@ -7,7 +7,7 @@ A constant stream for testing purposes
 var zeroesStream = new ConstantStream(1024*1000, (byte)0);
 
 // creates a 1 Gb stream full of 's'.
-var zeroesStream = new ConstantStream(1024*1000*1000, (byte)'s');
+var sStream = new ConstantStream(1024*1000*1000, (byte)'s');
 
 ```
 
