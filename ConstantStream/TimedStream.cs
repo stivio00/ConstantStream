@@ -1,20 +1,25 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Threading;
 
 namespace ConstantStream
 {
-    ///<Summary>Constant byte stream that mimic a NetworkStream.</Summary>
-    public class ConstantByteStream : Stream
+    ///<Summary>Stream with deterministic time waits.</Summary>
+    public class TimedStream : Stream
     {
         private int _position;
         private int _size;
         private byte _content;
 
-        public ConstantByteStream(int size, byte content)
+        public  Dictionary<int, TimeSpan> Delays {get; private set;}
+
+        public TimedStream(int size, byte content)
         {
             _position = 0;
             _size = size;
             _content = content;
+            Delays = new Dictionary<int, TimeSpan>();
         }
 
         public override bool CanRead => true;
@@ -27,21 +32,6 @@ namespace ConstantStream
 
         public override long Position { get => _position; set => throw new NotImplementedException(); }
 
-        public ConstantByteStream FromZeroes(int size)
-        {
-            return new ConstantByteStream(size, (byte)0);
-        }
-
-        public ConstantByteStream FromOnes(int size)
-        {
-            return new ConstantByteStream(size, (byte)1);
-        }
-
-        public ConstantByteStream FromCharacterA(int size)
-        {
-            return new ConstantByteStream(size, (byte)'a');
-        }
-
         public override void Flush()
         {
             throw new NotImplementedException();
@@ -49,6 +39,11 @@ namespace ConstantStream
 
         public override int Read(byte[] buffer, int offset, int count)
         {
+            if (Delays.ContainsKey(_position))
+            {
+                Thread.Sleep(Delays[_position]);
+            }
+
             int remaining = _size - _position;
             if (count == 0)
                 return -1;

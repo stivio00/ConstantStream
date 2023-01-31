@@ -1,9 +1,10 @@
 ﻿using System;
 using System.IO;
+using System.Linq;
 
 namespace ConstantStream
 {
-    ///<Summary>Constant byte sequence stream that mimic a NetworkStream.</Summary>
+    ///<Summary>Constant byte stride sequence stream that mimic a NetworkStream.</Summary>
     public class ConstantStrideStream : Stream
     {
         private int _position;
@@ -24,24 +25,18 @@ namespace ConstantStream
         public override bool CanSeek => false;
 
         public override bool CanWrite => false;
+
         public override long Length => throw new NotImplementedException();
 
         public override long Position { get => _position; set => throw new NotImplementedException(); }
 
-        public ConstantByteStream FromZeroes(int size)
+        public static ConstantStrideStream FromNumbers(int size)
         {
-            return new ConstantByteStream(size, (byte)0);
+            var numbers = new char[] {'0','1','2','3','4','5','6','7','8','9'};
+
+            return new ConstantStrideStream(size, numbers.Cast<byte>().ToArray());
         }
 
-        public ConstantByteStream FromOnes(int size)
-        {
-            return new ConstantByteStream(size, (byte)1);
-        }
-
-        public ConstantByteStream FromCharacterA(int size)
-        {
-            return new ConstantByteStream(size, (byte)'a');
-        }
 
         public override void Flush()
         {
