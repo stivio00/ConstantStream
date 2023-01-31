@@ -10,7 +10,7 @@ on:
     branches: [ "main" ]
 
 jobs:
-  build:
+  buildAndPublish:
 
     runs-on: ubuntu-latest
 
@@ -29,6 +29,6 @@ jobs:
     - name: Build package
       run: dotnet build -c Release
     - name: publish package
-      run: dotnet nuget push ConstantStream.*.nupkg --api-key $NUGET_KEY --source https://api.nuget.org/v3/index.json
+      run: dotnet nuget push ConstantStream*nupkg --api-key ${{ secrets.NUGET_KEY }} --source https://api.nuget.org/v3/index.json
     - name: publish package symbols
-      run: dotnet nuget push ConstantStream.*.snupkg --api-key $NUGET_KEY --source https://api.nuget.org/v3/index.json
+      run: dotnet nuget push ConstantStream*snupkg --api-key ${{ secrets.NUGET_KEY }} --source https://api.nuget.org/v3/index.json
