@@ -37,6 +37,12 @@ namespace ConstantStream
             return new ConstantStrideStream(size, numbers.Cast<byte>().ToArray());
         }
 
+        public static ConstantStrideStream FromAlphabet(int size)
+        {
+            var numbers = "abcdefghijklmnopqrstuvwxyz";
+
+            return new ConstantStrideStream(size, numbers.Cast<byte>().ToArray());
+        }
 
         public override void Flush()
         {
