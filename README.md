@@ -1,5 +1,6 @@
 # ConstantStream
 [![NuGet version (ConstanStream)](https://img.shields.io/nuget/v/constantStream.svg?style=flat-square)](https://www.nuget.org/packages/ConstantStream)
+
 A collections of fake streams for testing purposes.
 
 ## Types
