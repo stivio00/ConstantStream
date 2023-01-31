@@ -34,5 +34,5 @@ jobs:
         NUGET_KEY: ${{ secrets.NUKEG_KEY }}
         TEST_VAR: ${{ secrets.TEST }}
       run: |
-       dotnet nuget push **/bin/Release/**/*.nupkg --api-key $NUGET_KEY --source https://api.nuget.org/v3/index.json
+       dotnet nuget push **/bin/Release/**/*.nupkg --api-key $NUGET_KEY --source https://api.nuget.org/v3/index.json --skip-duplicate
 
