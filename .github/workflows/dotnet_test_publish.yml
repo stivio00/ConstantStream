@@ -31,8 +31,8 @@ jobs:
     - name: publish package
       env:
         NUGET_KEY: ${{ secrets.NUKEG_KEY }}
-      run: dotnet nuget push ConstantStream*nupkg --api-key "$NUGET_KEY" --source https://api.nuget.org/v3/index.json
+      run: dotnet nuget push **\*.nupkg--api-key "$NUGET_KEY" --source https://api.nuget.org/v3/index.json
     - name: publish package symbols
       env:
         NUGET_KEY: ${{ secrets.NUKEG_KEY }}
-      run: dotnet nuget push ConstantStream*snupkg --api-key "$NUGET_KEY" --source https://api.nuget.org/v3/index.json
+      run: dotnet nuget push **\*.snupkg--api-key "$NUGET_KEY" --source https://api.nuget.org/v3/index.json
