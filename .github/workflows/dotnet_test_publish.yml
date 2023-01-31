@@ -31,7 +31,11 @@ jobs:
     - name: publish package
       env:
         NUGET_KEY: ${{ secrets.NUKEG_KEY }}
-      run: dotnet nuget push **\*.nupkg --api-key $NUGET_KEY --source https://api.nuget.org/v3/index.json
+        TEST_VAR: ${{ secrets.TEST }}
+      run: |
+       echo $TEST
+       echo ${{ secrets.TEST }}
+       dotnet nuget push **\*.nupkg --api-key $NUGET_KEY --source https://api.nuget.org/v3/index.json
     - name: publish package symbols
       env:
         NUGET_KEY: ${{ secrets.NUKEG_KEY }}
