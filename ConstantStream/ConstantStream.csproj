@@ -10,7 +10,7 @@
     <Version>1.0.7</Version>
     <Authors>Stephen Krol</Authors>
     <Product>ConstantStream</Product>
-    <PackageTags>Streams Constant Test;Streams;Constant;Test;Testing;Timeout;Delay;stride;byte;fake</PackageTags>
+    <PackageTags>Streams Constant Test;Streams;Constant;Test;Testing;Timeout;Delay;stride;byte;fake;crypto;bytes</PackageTags>
     <Description>
       This library provide a basic type "ConstantStream". This type is a generator Stream that
       returns the same byte until the end of the stream.
