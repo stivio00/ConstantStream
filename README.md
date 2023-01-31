@@ -35,11 +35,17 @@ using ConstantStream;
 var zeroesStream = new ConstantByteStream(1024*1024, (byte)0);
 
 // Creates a 1 Gb stream full of 's'.
-var sStream = new ConstantByteStream(1024*1020*1020, (byte)'s');
+var sStream = new ConstantByteStream(1024*1024*1024, (byte)'s');
 
-// Handy factory method (From*)
-var zeroesStreamEasy = ConstantByteStream.FromZeroes(1024*1020);
-var zeroesStreamEasy = ConstantStrideStream.FromNumbers(1024*1020); // 01234567890123456...
+// Handy factory methods (From*) for ConstantByteStream
+var zeroesStreamEasy = ConstantByteStream.FromZeroes(1024*1024); // 1 Mb of zeroes
+var onesStreamEasy = ConstantByteStream.FromOnes(1024); // 1 Kb of ones
+var onesStreamEasy = ConstantByteStream.FromFromA(42); // 42 bytes of 'a'
+
+
+// Handy factory methods (From*) for ConstantStrideStream
+var zeroesStreamEasy = ConstantStrideStream.FromNumbers(1024*1024); // 01234567890123456... numbers from 0 to 9 in a loop
+var zeroesStreamEasy = ConstantStrideStream.FromAlphabet(1024); // abcdefghijkl.... alphabet in a loop
 ```
 
 ## Info
