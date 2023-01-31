@@ -23,12 +23,14 @@ jobs:
     - name: Restore dependencies
       run: dotnet restore
     - name: Build
-      run: dotnet build --no-restore
+      run: dotnet build --no-restore -c Release
     - name: Test
       run: dotnet test --no-build --verbosity normal
-    - name: Build package
-      run: dotnet build -c Release
     - name: publish package
-      run: dotnet nuget push ConstantStream*nupkg --api-key ${{ secrets.NUKEG_KEY }} --source https://api.nuget.org/v3/index.json
+      env:
+        NUGET_KEY: ${{ secrets.NUKEG_KEY }}
+      run: dotnet nuget push ConstantStream*nupkg --api-key $NUGET_KEY --source https://api.nuget.org/v3/index.json
     - name: publish package symbols
-      run: dotnet nuget push ConstantStream*snupkg --api-key ${{ secrets.NUKEG_KEY }} --source https://api.nuget.org/v3/index.json
+      env:
+        NUGET_KEY: ${{ secrets.NUKEG_KEY }}
+      run: dotnet nuget push ConstantStream*snupkg --api-key $NUGET_KEY --source https://api.nuget.org/v3/index.json
