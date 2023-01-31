@@ -1,31 +1,33 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
     <PackageId>ConstantStream</PackageId>
     <Version>1.0.7</Version>
     <Authors>Stephen Krol</Authors>
     <Product>ConstantStream</Product>
-    <PackageTags>Streams Constant Test;Streams;Constant;Test;Testing;Timeout;Delay;stride;byte;fake;crypto;bytes</PackageTags>
+    <PackageTags>Streams;Constant;Test;Testing;Timeout;Delay;stride;byte;fake;crypto;bytes</PackageTags>
     <Description>
-      This library provide a basic type "ConstantStream". This type is a generator Stream that
-      returns the same byte until the end of the stream.
-      Its usefull to create big testing streams with predictable Hash values.
+      This library provides a collection of fake stream for testing.
+      A constant stream is an lazy stream (not backed by a base stream) and 
+      provide a basic reading operations of a stream of bytes (the same byte or stride of bytes).
+      The streams imitate a NetworkStream by providing only the  "Read" operation and not "Seek", "Length" or "Write".
     </Description>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageProjectUrl>https://github.com/stivio00/ConstantStream</PackageProjectUrl>
     <RepositoryUrl>https://github.com/stivio00/ConstantStream.git</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
+  </PropertyGroup>
 
+  <PropertyGroup>
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
     <EmbedUntrackedSources>true</EmbedUntrackedSources>
     <IncludeSymbols>true</IncludeSymbols>
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
-
   </PropertyGroup>
 
   <ItemGroup>

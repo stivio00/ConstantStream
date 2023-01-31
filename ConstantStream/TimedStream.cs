@@ -39,11 +39,6 @@ namespace ConstantStream
 
         public override int Read(byte[] buffer, int offset, int count)
         {
-            if (Delays.ContainsKey(_position))
-            {
-                Thread.Sleep(Delays[_position]);
-            }
-
             int remaining = _size - _position;
             if (count == 0)
                 return -1;
@@ -51,14 +46,19 @@ namespace ConstantStream
             if (count > remaining)
             {
                 for (int i = 0; i < remaining; i++)
+                {
+                    CheckAndWaitForByte(_position+i);
                     buffer[i] = _content;
-
+                }
                 _position += remaining;
                 return remaining;
             }
 
             for (int i = 0; i < count; i++)
+            {
+                CheckAndWaitForByte(_position+i);
                 buffer[i] = _content;
+            }
 
             _position += count;
 
@@ -78,6 +78,14 @@ namespace ConstantStream
         public override void Write(byte[] buffer, int offset, int count)
         {
             throw new NotImplementedException();
+        }
+
+        private void CheckAndWaitForByte(int position)
+        {
+            if (Delays.ContainsKey(position))
+            {
+                Thread.Sleep(Delays[position]);
+            }
         }
     }
 }
