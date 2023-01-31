@@ -12,7 +12,7 @@ namespace ConstantStream
         private int _size;
         private byte _content;
 
-        public  Dictionary<int, TimeSpan> Delays {get; private set;}
+        public Dictionary<int, TimeSpan> Delays { get; private set; }
 
         public TimedStream(int size, byte content)
         {
