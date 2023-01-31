@@ -13,6 +13,7 @@ jobs:
   buildAndPublish:
 
     runs-on: ubuntu-latest
+    environment: Nuget env
 
     steps:
     - uses: actions/checkout@v3
