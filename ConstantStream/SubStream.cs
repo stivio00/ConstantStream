@@ -3,7 +3,9 @@ using System.IO;
 
 namespace ConstantStream
 {
-    ///<Summary>Constant byte stream that mimic a NetworkStream.</Summary>
+    ///<Summary>Represents a moving window Stream. It Reports to downstream(StreamReaders) 
+    /// that the stream ended when it reads up to the chunk size limit.
+    /// Is possible to move to the next window by calling <c>MoveToNextChunk()</c></Summary>
     public class SubStream : Stream
     {
         private int _position;
@@ -12,11 +14,11 @@ namespace ConstantStream
         private Stream _baseStream;
         public bool IsChunkEnded { get; private set; }
 
-        public SubStream(Stream baseStream, int maxChunk)
+        public SubStream(Stream baseStream, int chunkSize)
         {
             _position = 0;
             _chunkReaded = 0;
-            _size = maxChunk;
+            _size = chunkSize;
             _baseStream = baseStream;
         }
 
