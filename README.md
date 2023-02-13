@@ -4,10 +4,13 @@
 A collection of fake streams for testing purposes.
 
 ## Types
-The library have tree stream types:
+The library have three fake stream types:
 * ConstantByteStream: A fake stream that generate a finite set of the same bytes.
 * ConstantStrideStream: A fake stream that generate a byte stride in a loop.
 * TimedStream: A fake constant byte stream that waits in determined positions.
+
+One util Stream:
+* SubStream: a substream is a small window to the base stream.
 
 For example:
 ```c#
