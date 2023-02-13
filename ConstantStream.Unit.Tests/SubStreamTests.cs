@@ -13,17 +13,15 @@ public class SubStreamTests
         SubStream subStream = new SubStream(strideStream, 4);
 
         var reader = new StreamReader(subStream);
-        var s = reader.ReadToEnd();
-        s.Should().BeEquivalentTo(expected[0]);
+        reader.ReadToEnd().Should().BeEquivalentTo(expected[0]);
 
-        reader = new StreamReader(new SubStream(strideStream, 4));
-        s = reader.ReadToEnd();
-        s.Should().BeEquivalentTo(expected[1]);
+        subStream.MoveToNextChunk();
+        reader.ReadToEnd().Should().BeEquivalentTo(expected[1]);
 
-        reader = new StreamReader(new SubStream(strideStream, 4));
+        subStream.MoveToNextChunk();
         reader.ReadToEnd().Should().BeEquivalentTo(expected[2]);
 
-        reader = new StreamReader(new SubStream(strideStream, 4));
+        subStream.MoveToNextChunk();
         reader.ReadToEnd().Should().BeEquivalentTo(expected[3]);
     }
 

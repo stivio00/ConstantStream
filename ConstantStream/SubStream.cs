@@ -8,12 +8,14 @@ namespace ConstantStream
     {
         private int _position;
         private int _size;
+        private int _chunkReaded;
         private Stream _baseStream;
-        public bool IsEnded { get; private set; }
+        public bool IsChunkEnded { get; private set; }
 
         public SubStream(Stream baseStream, int maxChunk)
         {
             _position = 0;
+            _chunkReaded = 0;
             _size = maxChunk;
             _baseStream = baseStream;
         }
@@ -38,13 +40,15 @@ namespace ConstantStream
             int remaining = _size - _position;
             if (remaining == 0) 
             {
+                IsChunkEnded = true;
                 return 0;
             }
 
             int readed = _baseStream.Read(buffer, offset, Math.Min(count,remaining));
-            IsEnded = readed == 0;
-            if (!IsEnded)
+            IsChunkEnded = readed == 0;
+            if (!IsChunkEnded)
             {
+                _chunkReaded += readed;
                 _position += readed;
                 return readed;
             }
@@ -66,6 +70,17 @@ namespace ConstantStream
         {
             throw new NotImplementedException();
         }
+
+        public void MoveToNextChunk()
+        {
+            if (!IsChunkEnded){
+                throw new Exception("The stream have not ended. Resetting will cause bad behavior");
+            }
+
+            _chunkReaded = 0;
+            _position = 0;
+        }
+        
     }
 }
 
