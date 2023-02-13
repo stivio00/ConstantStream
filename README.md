@@ -1,5 +1,5 @@
 # ConstantStream
-[![NuGet version (ConstanStream)](https://img.shields.io/nuget/v/ConstantStream.svg?style=flat-square)](https://www.nuget.org/packages/ConstantStream) [![Downloads (ConstanStream)](https://img.shields.io/nuget/dt/ConstantStream.svg?branch=master?style=flat-square)](https://www.nuget.org/packages/ConstantStream) [![Issues (ConstanStream)](https://img.shields.io/github/issues/stivio00/ConstantStream.svg?branch=master)](https://www.nuget.org/packages/ConstantStream) 
+[![NuGet version (ConstanStream)](https://img.shields.io/nuget/v/ConstantStream.svg?style=flat-square)](https://www.nuget.org/packages/ConstantStream) [![Downloads (ConstanStream)](https://img.shields.io/nuget/dt/ConstantStream.svg?branch=master?style=flat-square)](https://www.nuget.org/packages/ConstantStream) [![Issues (ConstanStream)](https://img.shields.io/github/issues/stivio00/ConstantStream.svg?branch=master)](https://github.com/stivio00/ConstantStream/issues) 
 
 
 A collection of fake streams for testing purposes.
