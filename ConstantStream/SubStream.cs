@@ -40,13 +40,13 @@ namespace ConstantStream
         public override int Read(byte[] buffer, int offset, int count)
         {
             int remaining = _size - _position;
-            if (remaining == 0) 
+            if (remaining == 0)
             {
                 IsChunkEnded = true;
                 return 0;
             }
 
-            int readed = _baseStream.Read(buffer, offset, Math.Min(count,remaining));
+            int readed = _baseStream.Read(buffer, offset, Math.Min(count, remaining));
             IsChunkEnded = readed == 0;
             if (!IsChunkEnded)
             {
@@ -54,7 +54,7 @@ namespace ConstantStream
                 _position += readed;
                 return readed;
             }
-            
+
             return 0;
         }
 
@@ -75,14 +75,15 @@ namespace ConstantStream
 
         public void MoveToNextChunk()
         {
-            if (!IsChunkEnded){
+            if (!IsChunkEnded)
+            {
                 throw new Exception("The stream have not ended. Resetting will cause bad behavior");
             }
 
             _chunkReaded = 0;
             _position = 0;
         }
-        
+
     }
 }
 
