@@ -21,7 +21,7 @@
     <PackageProjectUrl>https://github.com/stivio00/ConstantStream</PackageProjectUrl>
     <RepositoryUrl>https://github.com/stivio00/ConstantStream.git</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
-    <PackageIcon>Resources/DALL·E 2023-01-31 15.12.15 - a constant stream of bytes logo monochrome.png</PackageIcon>
+    <PackageIcon>logo.png</PackageIcon>
   </PropertyGroup>
 
   <PropertyGroup>
@@ -37,7 +37,7 @@
 
   <ItemGroup>
     <None Include="../README.md" Pack="true" PackagePath="\" />
-  <None Include="Resources/DALL·E 2023-01-31 15.12.15 - a constant stream of bytes logo monochrome.png" Pack="true" PackagePath=""/>
+  <None Include="Resources/logo.png" Pack="true" PackagePath=""/>
   </ItemGroup>
 
   <PropertyGroup>
