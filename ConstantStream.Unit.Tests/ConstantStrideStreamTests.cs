@@ -30,18 +30,22 @@ public class ConstantStrideStreamTests
         result.Should().Be(expected);
     }
 
-    [Fact( Skip = "Only to generate table in README.md")]
+    [Fact (Skip = "Only to generate table in README.md")]
     public void ComputeWellKnowHash()
     {
-        Dictionary<string, ConstantStrideStream> tests = new(){
-            ["1 kb"] =  ConstantStrideStream.FromAlphabet(1024),
-            ["1 mb"] =  ConstantStrideStream.FromAlphabet(1024*1024),
-            ["10 mb"] = ConstantStrideStream.FromAlphabet(10* 1024*1024),
-            ["100 mb"] = ConstantStrideStream.FromAlphabet(100* 1024*1024),
-            ["500 mb"] = ConstantStrideStream.FromAlphabet(500* 1024*1024),
-            ["1 gb"] = ConstantStrideStream.FromAlphabet(1024* 1024*1024),
+        Dictionary<string, ConstantStrideStream> tests = new()
+        {
+            ["1 kb"] = ConstantStrideStream.FromAlphabet(1024),
+           // ["1 mb"] = ConstantStrideStream.FromAlphabet(1024 * 1024),
+           // ["10 mb"] = ConstantStrideStream.FromAlphabet(10 * 1024 * 1024),
+           // ["100 mb"] = ConstantStrideStream.FromAlphabet(100 * 1024 * 1024),
+           // ["500 mb"] = ConstantStrideStream.FromAlphabet(500 * 1024 * 1024),
+           // ["1 gb"] = ConstantStrideStream.FromAlphabet(1024 * 1024 * 1024),
+           // ["2 gb"] = ConstantStrideStream.FromAlphabet((long)2 * 1024 * 1024 * 1024),
+           // ["5 gb"] = ConstantStrideStream.FromAlphabet((long)5 * 1024 * 1024 * 1024),
+           // ["10 gb"] = ConstantStrideStream.FromAlphabet((long)10 * 1024 * 1024 * 1024),
         };
-         
+
         foreach (var label in tests.Keys)
         {
             //using var hasher = MD5.Create();
