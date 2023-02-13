@@ -16,17 +16,22 @@ For example:
 ```c#
 // The constant byte stream
 var cbs = ConstantByteStream(5, (byte) 'A'); 
-(new StreamReader(cbs).ReadToEnd() // Should return  "AAAAA"
+// Should return  "AAAAA"
+string text = (new StreamReader(cbs)).ReadToEnd() ;
 
 // The constant stride stream
-ConstantStrideStream(10, Encoding.UTF8.GetBytes("ABC")); // Should read as "ABCABCABCA"
+// Should read as "ABCABCABCA"
+ConstantStrideStream(10, Encoding.UTF8.GetBytes("ABC")); 
 
-// The TimedStream
-var timedStream = new TimedStream(1024, (byte)'c'); // Just like a constant byte stream
+// The TimedStream: just like a constant byte stream
+var timedStream = new TimedStream(1024, (byte)'c'); 
 
-timedStream.Delays.Add(0, TimeSpan.FromMilliseconds(200)); // add a wait in position 0 of 200 ms
-timedStream.Delays.Add(15, TimeSpan.FromMilliseconds(250)); // add a wait in position 15 of 250 ms
-timedStream.Delays.Add(1000, TimeSpan.FromMinutes(1)); // add a wait in position 1000 of 1 min
+// add a wait in position 0 of 200 ms
+timedStream.Delays.Add(0, TimeSpan.FromMilliseconds(200)); 
+// add a wait in position 15 of 250 ms
+timedStream.Delays.Add(15, TimeSpan.FromMilliseconds(250)); 
+// add a wait in position 1000 of 1 min
+timedStream.Delays.Add(1000, TimeSpan.FromMinutes(1)); 
 // the timedStream should take about 1 minute + 450 ms + reading overhead(ms) to read in total
 ```
 
@@ -41,14 +46,19 @@ var zeroesStream = new ConstantByteStream(1024*1024, (byte)0);
 var sStream = new ConstantByteStream(1024*1024*1024, (byte)'s');
 
 // Handy factory methods (From*) for ConstantByteStream
-var zeroesStreamEasy = ConstantByteStream.FromZeroes(1024*1024); // 1 Mb of zeroes
-var onesStreamEasy = ConstantByteStream.FromOnes(1024); // 1 Kb of ones
-var onesStreamEasy = ConstantByteStream.FromFromA(42); // 42 bytes of 'a'
+// 1 Mb of zeroes
+var zeroesStreamEasy = ConstantByteStream.FromZeroes(1024*1024);
+// 1 Kb of ones 
+var onesStreamEasy = ConstantByteStream.FromOnes(1024); 
+// 42 bytes of 'a'
+var onesStreamEasy = ConstantByteStream.FromFromA(42); 
 
 
 // Handy factory methods (From*) for ConstantStrideStream
-var zeroesStreamEasy = ConstantStrideStream.FromNumbers(1024*1024); // 01234567890123456... numbers from 0 to 9 in a loop
-var zeroesStreamEasy = ConstantStrideStream.FromAlphabet(1024); // abcdefghijkl.... alphabet in a loop
+// 01234567890123456... numbers from 0 to 9 in a loop
+var zeroesStreamEasy = ConstantStrideStream.FromNumbers(1024*1024); 
+// abcdefghijkl.... alphabet in a loop
+var zeroesStreamEasy = ConstantStrideStream.FromAlphabet(1024); 
 ```
 
 ## Info
