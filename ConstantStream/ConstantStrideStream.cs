@@ -53,7 +53,7 @@ namespace ConstantStream
         {
             int remaining = _size - _position;
             if (count == 0)
-                return -1;
+                return 0;
 
             if (count > remaining)
             {

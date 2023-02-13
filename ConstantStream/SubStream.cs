@@ -9,6 +9,7 @@ namespace ConstantStream
         private int _position;
         private int _size;
         private Stream _baseStream;
+        public bool IsEnded { get; private set; }
 
         public SubStream(Stream baseStream, int maxChunk)
         {
@@ -34,10 +35,21 @@ namespace ConstantStream
 
         public override int Read(byte[] buffer, int offset, int count)
         {
-            int remaining = _position - count;
+            int remaining = _size - _position;
+            if (remaining == 0) 
+            {
+                return 0;
+            }
+
             int readed = _baseStream.Read(buffer, offset, Math.Min(count,remaining));
-            _position += readed;
-            return readed;
+            IsEnded = readed == 0;
+            if (!IsEnded)
+            {
+                _position += readed;
+                return readed;
+            }
+            
+            return 0;
         }
 
         public override long Seek(long offset, SeekOrigin origin)
