@@ -7,7 +7,7 @@
 
   <PropertyGroup>
     <PackageId>ConstantStream</PackageId>
-    <Version>1.0.16</Version>
+    <Version>1.0.17</Version>
     <Authors>Stephen Krol</Authors>
     <Product>ConstantStream</Product>
     <PackageTags>Streams;Constant;Test;Testing;Timeout;Delay;stride;byte;fake;crypto;bytes</PackageTags>
@@ -29,6 +29,7 @@
     <EmbedUntrackedSources>true</EmbedUntrackedSources>
     <IncludeSymbols>true</IncludeSymbols>
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <ContinuesintegrationBuild>true</ContinuesintegrationBuild>
   </PropertyGroup>
 
   <ItemGroup>
@@ -44,4 +45,7 @@
     <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(GITHUB_ACTIONS)' == 'true'">
+    <ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
+  </PropertyGroup> 
 </Project>
