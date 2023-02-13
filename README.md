@@ -66,3 +66,13 @@ var zeroesStreamEasy = ConstantStrideStream.FromAlphabet(1024);
 The Stream doesnt have a base stream. Its a fake generator and provide a simple 
 Stream that generates large amounts of data.
 It can be used with stream readers like TextReader, copyTo(file), HttpBody, crypto readers, and compression readers.
+
+## Well Know Hashes
+| ConstantStream | Size | MD5 Hex | MD5 Base64 | SHA1 Hex | SHA1 Base65 |
+| --- | --- | --- | --- | --- | --- |
+| FromAlphabet | 1 KB   | 930053E6D45C93FF2666C98BCD9610A1 | kwBT5tRck/8mZsmLzZYQoQ== | C167BE12C4F34DA6C4854C46A85627116B5E95FA | wWe+EsTzTabEhUxGqFYnEWtelfo= |
+| FromAlphabet | 1 MB   | B63BA06DE0E8A9626D5BCF27E93BF32D | tjugbeDoqWJtW88n6TvzLQ== | DD89D1965604BD939EC68A6CA4552788F0EB1F88 | 3YnRllYEvZOexopspFUniPDrH4g= |
+| FromAlphabet | 10 MB  | D3344B5243DB57263EF171B989C41BE4 | 0zRLUkPbVyY+8XG5icQb5A== | 2EB34A9141CE511DB12FA1BD24EB3F2E774D126C | LrNKkUHOUR2xL6G9JOs/LndNEmw= |
+| FromAlphabet | 100 MB | E19E759A14BF22353BAB93550B87472A | 4Z51mhS/IjU7q5NVC4dHKg== | B3BED9CEDB044AC81E6774D5EEBA5FBE6BCDF954 | s77ZztsESsgeZ3TV7rpfvmvN+VQ= |
+| FromAlphabet | 500 MB | C4A4DF0923DEE72ED2A3518F65EDA1F5 | xKTfCSPe5y7So1GPZe2h9Q== | 70048729EBB60D5EAA2A8CFC523AF1367282F6DD | cASHKeu2DV6qKoz8UjrxNnKC9t0= |
+| FromAlphabet | 1 GB   | B472DC36AB28968EFBB4EC626BC98702 | tHLcNqsolo77tOxia8mHAg== | 0AC6BC4031B4E87FE60E1AAD28BA40C429F4F010 | Csa8QDG06H/mDhqtKLpAxCn08BA= |
