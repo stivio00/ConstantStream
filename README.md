@@ -9,8 +9,9 @@ The library have three fake stream types:
 * ConstantStrideStream: A fake stream that generate a byte stride in a loop.
 * TimedStream: A fake constant byte stream that waits in determined positions.
 
-One util Stream:
+Utility streams:
 * SubStream: a substream is a small window to the base stream.
+* CountedStream: record all the bytes readed.
 
 For example:
 ```c#
