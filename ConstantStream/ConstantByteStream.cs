@@ -27,17 +27,17 @@ namespace ConstantStream
 
         public override long Position { get => _position; set => throw new NotImplementedException(); }
 
-        public ConstantByteStream FromZeroes(int size)
+        public static ConstantByteStream FromZeroes(int size)
         {
             return new ConstantByteStream(size, (byte)0);
         }
 
-        public ConstantByteStream FromOnes(int size)
+        public static ConstantByteStream FromOnes(int size)
         {
             return new ConstantByteStream(size, (byte)1);
         }
 
-        public ConstantByteStream FromCharacterA(int size)
+        public static ConstantByteStream FromCharacterA(int size)
         {
             return new ConstantByteStream(size, (byte)'a');
         }
